@@ -11,19 +11,19 @@ class UsersController extends GetxController {
   @override
   onInit() {
     super.onInit();
-    getUserModel();
+    getUserModel(currentPage);
   }
-
+  int currentPage = 1;
   UserModel? userModel;
   bool isLoading = false;
 
-  Future<void> getUserModel() async {
+  Future<void> getUserModel(int page) async {
     isLoading = true;
     update(); // Call this to notify listeners about loading state change
 
     try {
       // Fetch data from the API
-      final response = await apiService!.fetchData("https://reqres.in/api/users?page=1");
+      final response = await apiService!.fetchData("https://reqres.in/api/users?page=$page");
 
       // Check response status and handle it accordingly
       if (response != null && response.statusCode == 200) {

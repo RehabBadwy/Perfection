@@ -21,8 +21,8 @@ class MyBindings extends Bindings {
 
       Get.put(UsersController(apiService: apiService), permanent: true,);
 
-      UsersController controller = Get.find<UsersController>();
-      controller.getUserModel();
+      // UsersController controller = Get.find<UsersController>();
+
 
   }
 }

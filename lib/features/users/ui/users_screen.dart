@@ -39,6 +39,58 @@ class UsersScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                          backgroundColor: ColorsManager.purple,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              side:  BorderSide(
+
+                                  color:controller.currentPage == 1 ?
+                                  ColorsManager.black:
+                                  Colors.transparent,
+                                  width: 2),
+                            ),
+                          ),
+                          onPressed: () {
+                            controller.currentPage = 1;
+                            controller.getUserModel(1);
+                          },
+                          child: const Text("Page 1",
+                          style: TextStyle(
+                            color: ColorsManager.white,
+                          ),
+                          ),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: ColorsManager.purple,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              side:  BorderSide(
+
+                                  color:controller.currentPage == 2 ?
+                                  ColorsManager.black:
+                                  Colors.transparent,
+                                  width: 2),
+                            ),
+                          ),
+                          onPressed: () {
+                            controller.currentPage = 2;
+                            controller.getUserModel(2);
+                          },
+                          child: const Text("Page 2",
+                          style: TextStyle(
+                            color: ColorsManager.white,
+                          ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    Row(
                       children: [
                         Text(
                           'Page',
@@ -86,19 +138,19 @@ class UsersScreen extends StatelessWidget {
                       ),
                     ),
 
-                    Text(
-                      'text :',
-                      style: TextStyles.font14Bold.copyWith(
-                        color: ColorsManager.borderWallet,
-                      ),
-                    ),
-
-                    Text(
-                      controller.userModel?.support!.text.toString()??"",
-                      style: TextStyles.font12Medium.copyWith(
-                        color: ColorsManager.blackBold,
-                      ),
-                    ),
+                    // Text(
+                    //   'text :',
+                    //   style: TextStyles.font14Bold.copyWith(
+                    //     color: ColorsManager.borderWallet,
+                    //   ),
+                    // ),
+                    //
+                    // Text(
+                    //   controller.userModel?.support!.text.toString()??"",
+                    //   style: TextStyles.font12Medium.copyWith(
+                    //     color: ColorsManager.blackBold,
+                    //   ),
+                    // ),
                     const SizedBox(height: 20),
                     // GridView يظهر فقط عندما تكون البيانات جاهزة
                     GridView.builder(
